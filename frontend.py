@@ -64,6 +64,9 @@ def update_book():
 
 window = Tk()
 
+# Add Window Title
+window.wm_title("Bookstore")
+
 # Label
 titleLabel = Label(window, text='Title')
 titleLabel.grid(row=0, column=0)
@@ -129,7 +132,7 @@ updateBtn.grid(row=5, column=4)
 deleteBtn = Button(window, text='Delete', width=12, command=delete_book)
 deleteBtn.grid(row=6, column=4)
 
-CloseBtn = Button(window, text='Close', width=12)
+CloseBtn = Button(window, text='Close', width=12, command=window.destroy)
 CloseBtn.grid(row=7, column=4)
 
 
