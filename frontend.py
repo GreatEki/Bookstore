@@ -59,6 +59,9 @@ def delete_book():
     backend.delete(selected_book[0])
 
 
+def update_book():
+    backend.update(selected_book[0], title_text.get(), author_text.get(), year_text.get(), isbn_text.get()) 
+
 window = Tk()
 
 # Label
@@ -120,7 +123,7 @@ SearchBtn.grid(row=3, column=4)
 AddBtn = Button(window, text='Add Entry', width=12, command=add_book)
 AddBtn.grid(row=4, column=4)
 
-updateBtn = Button(window, text='Update', width=12)
+updateBtn = Button(window, text='Update', width=12, command=update_book)
 updateBtn.grid(row=5, column=4)
 
 deleteBtn = Button(window, text='Delete', width=12, command=delete_book)
