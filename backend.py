@@ -9,7 +9,7 @@ def db_connection():
 
 def insert(title, author, year, isbn):
     connection = sqlite3.connect("bookstore.db")
-    cursor.connection.cursor()0
+    cursor = connection.cursor()
     cursor.execute(" INSERT INTO books VALUES (NULL, ?, ?, ?, ?)", (title, author, year, isbn))
     connection.commit()
     connection.close()
@@ -21,3 +21,18 @@ def view():
     allBooks = cursor.fetchall()
     connection.close()
     return allBooks
+
+def search(title='', author='', year='', isbn=''):
+    # passing empty strings as default values to the arguments of the search method
+    connection = sqlite3.connect("bookstore.db")
+    cursor = connection.cursor()
+    cursor.execute(" SELECT * FROM books WHERE title=? OR author=? OR year=? OR isbn=?", (title, author, year, isbn))
+    theBook = cursor.fetchall()
+    connection.close()
+    return theBook
+
+db_connection()
+
+# insert('The earth', 'John Smith', 1929, 67457483838)
+print(search(author='John Smith'))
+# print(view())
