@@ -54,13 +54,35 @@ isbnEntry = Entry(window, textvariable=isbn_text)
 isbnEntry.grid(row=1, column=3)
 
 # Create ListBox
-bookList = Listbox(window, height=6, width=35)
+bookList = Listbox(window, height=6)
 bookList.grid(row=2, column=0, rowspan=6, columnspan=2)
 
+# Create Scroll Bar
 bookScroll = Scrollbar(window)
 bookScroll.grid(row=2, column=2, rowspan=6)
 
 bookList.configure(yscrollcommand=bookScroll.set)
 bookScroll.configure(command=bookList.yview)
+
+
+# Create Buttons
+ViewBtn = Button(window, text='View All', width=12)
+ViewBtn.grid(row=2, column=3)
+
+SearchBtn = Button(window, text='Search All', width=12)
+SearchBtn.grid(row=3, column=3)
+
+AddBtn = Button(window, text='Add Entry', width=12)
+AddBtn.grid(row=4, column=3)
+
+updateBtn = Button(window, text='Update', width=12)
+updateBtn.grid(row=5, column=3)
+
+deleteBtn = Button(window, text='Delete', width=12)
+deleteBtn.grid(row=6, column=3)
+
+CloseBtn = Button(window, text='Close', width=12)
+CloseBtn.grid(row=7, column=3)
+
 
 window.mainloop()
