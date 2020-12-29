@@ -23,6 +23,11 @@ def view_books():
     for row in backend.view():
         bookList.insert(END, row)
 
+def search_book():
+    bookList.delete(0, END)
+    for row in backend.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
+        bookList.insert(END, row)
+
 window = Tk()
 
 # Label
@@ -76,7 +81,7 @@ bookScroll.configure(command=bookList.yview)
 ViewBtn = Button(window, text='View All', width=12, command=view_books)
 ViewBtn.grid(row=2, column=3)
 
-SearchBtn = Button(window, text='Search All', width=12)
+SearchBtn = Button(window, text='Search All', width=12, command=search_book)
 SearchBtn.grid(row=3, column=3)
 
 AddBtn = Button(window, text='Add Entry', width=12)
