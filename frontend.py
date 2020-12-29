@@ -17,6 +17,12 @@ Close
 from tkinter import *
 import backend
 
+def view_books():
+    bookList.delete(0, END)
+    # We are emptying the list box before displaying the list of books
+    for row in backend.view():
+        bookList.insert(END, row)
+
 window = Tk()
 
 # Label
@@ -67,7 +73,7 @@ bookScroll.configure(command=bookList.yview)
 
 
 # Create Buttons
-ViewBtn = Button(window, text='View All', width=12)
+ViewBtn = Button(window, text='View All', width=12, command=view_books)
 ViewBtn.grid(row=2, column=3)
 
 SearchBtn = Button(window, text='Search All', width=12)
