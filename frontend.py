@@ -18,24 +18,29 @@ from tkinter import *
 import backend
 
 def get_selected_book(event):
-    global selected_book
-    # We get the index of the item on the list box
-    index = bookList.curselection()[0]
-    # We need to get the content of the selected item in the listbox using the index
-    selected_book = bookList.get(index)
+    try:
+        global selected_book
+        # We get the index of the item on the list box
+        index = bookList.curselection()[0]
+        # We need to get the content of the selected item in the listbox using the index
+        selected_book = bookList.get(index)
 
-    # Pasting the values of selected book in the Entry Widget
-    titleEntry.delete(0, END)
-    titleEntry.insert(END, selected_book[1])
+        # Pasting the values of selected book in the Entry Widget
+        titleEntry.delete(0, END)
+        titleEntry.insert(END, selected_book[1])
 
-    authorEntry.delete(0, END)
-    authorEntry.insert(END, selected_book[2])
+        authorEntry.delete(0, END)
+        authorEntry.insert(END, selected_book[2])
 
-    yearEntry.delete(0, END)
-    yearEntry.insert(END, selected_book[3])
+        yearEntry.delete(0, END)
+        yearEntry.insert(END, selected_book[3])
 
-    isbnEntry.delete(0, END)
-    isbnEntry.insert(END, selected_book[4])
+        isbnEntry.delete(0, END)
+        isbnEntry.insert(END, selected_book[4])
+    except IndexError:
+        pass
+
+   
     
 
 def view_books():
