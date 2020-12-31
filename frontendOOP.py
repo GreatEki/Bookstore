@@ -13,6 +13,12 @@ Close
 
 """
 
+# The abode is called 'Doc strings'
+# We use doc strings to provide some information about our code or class.
+# We can see the doc strings in our code by using the instance of the class to call the __doc__
+# e.g myObjectInstance = MyClass() 
+# myObjectInstance.__doc__
+
 
 from tkinter import *
 from backendOOP import Database
